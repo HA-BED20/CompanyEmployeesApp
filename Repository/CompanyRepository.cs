@@ -30,6 +30,11 @@ namespace Repository
 
         void ICompanyRepository.CreateCompany(Company company) => Create(company);
 
+        void ICompanyRepository.DeleteCompany(Company company)
+        {
+            Delete(company);
+        }
+
         IEnumerable<Company> ICompanyRepository.GetByIds(IEnumerable<Guid> ids, bool trackChanges) =>
             FindByCondition(x => ids.Contains(x.Id), trackChanges)
                 .ToList();
